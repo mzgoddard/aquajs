@@ -13,6 +13,9 @@ config.init({
   qunit: {
     index: ['test/index.html']
   },
+  test: {
+    files: ['test/tests/*.js']
+  },
   lint: {
     files: ['lib/base.js', 'lib/object.js']
   }

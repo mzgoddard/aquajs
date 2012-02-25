@@ -21,7 +21,7 @@ A Game
 .. parsed-literal ::
 
   var myGame = aqua.game(),
-      myGameObject = aqua.gameObject();
+      myEntity = aqua.entity();
 
   // setup rendering, physics, etc services
   myGame.addService(someService());
@@ -39,15 +39,15 @@ A Game
       // transform methods
     });
 
-  myGameObject.add(transformComponent());
-  myGameObject.add(renderingComponent());
-  myGameObject.add(...);
-  myGame.add(myGameObject);
+  myEntity.add(transformComponent());
+  myEntity.add(renderingComponent());
+  myEntity.add(...);
+  myGame.add(myEntity);
 
   myGame.main();
 
-GameService
------------
+Service
+-------
 
 This is an example service that replicates the tasks Game objects has by default.
 
@@ -58,7 +58,7 @@ This is an example service that replicates the tasks Game objects has by default
   };
 
   UpdateService.prototype = aqua.extend(
-    aqua.gameService(),
+    aqua.service(),
     {
       ongameadd: function(game) {
         this.tasks.push(
