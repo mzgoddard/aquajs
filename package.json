@@ -1,0 +1,10 @@
+{
+  "name": "aquajs",
+  "version": "0.1.1",
+  "scripts": {
+    "install": "node_modules/.bin/grunt"
+  },
+  "devDependencies": {
+    "grunt": "0.3.15"
+  }
+}

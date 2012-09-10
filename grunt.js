@@ -1,6 +1,8 @@
+module.exports = function(grunt) {
+
 var spawn = require('child_process').spawn;
 
-config.init({
+grunt.initConfig({
   deps: {
     'git.submodule': true
   },
@@ -21,16 +23,18 @@ config.init({
   }
 });
 
-task.registerBasicTask('deps', 'download dependencies', function(data, name) {
+grunt.registerTask('deps', 'download dependencies', function(data, name) {
   var done = this.async();
 
   spawn('git', ['submodule', 'init']).on('exit', function() {
     spawn('git', ['submodule', 'update']).on('exit', function() {
-      log.writeln('git submodule updated.');
+      grunt.log.writeln('git submodule updated.');
       done();
     });
   });
 });
 
 // Default task.
-task.registerTask('default', 'deps lint qunit concat min');
+grunt.registerTask('default', 'deps lint qunit concat min');
+
+};
